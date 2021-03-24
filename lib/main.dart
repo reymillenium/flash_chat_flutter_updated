@@ -28,6 +28,7 @@ class FlashChatUpdated extends StatelessWidget {
         ),
       ),
       home: WelcomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
