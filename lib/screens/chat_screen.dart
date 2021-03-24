@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 // Components:
 
-// Services:
+// Helpers:
 
 // Utilities:
 import 'package:flash_chat_flutter_updated/utilities/constants.dart';

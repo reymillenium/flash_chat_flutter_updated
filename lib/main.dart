@@ -9,7 +9,7 @@ import 'package:flash_chat_flutter_updated/screens/chat_screen.dart';
 
 // Components:
 
-// Services:
+// Helpers:
 
 // Utilities:
 import 'package:flash_chat_flutter_updated/utilities/constants.dart';
