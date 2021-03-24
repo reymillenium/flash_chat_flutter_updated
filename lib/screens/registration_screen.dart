@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat_flutter_updated/utilities/constants.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  static String id = 'registration_screen';
+  static const String id = 'registration_screen';
 
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();

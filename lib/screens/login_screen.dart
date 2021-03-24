@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flash_chat_flutter_updated/utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
-  static String id = 'login_screen';
+  static const String id = 'login_screen';
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
