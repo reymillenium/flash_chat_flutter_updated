@@ -37,7 +37,6 @@ class FlashChatUpdated extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
-        // '/input': (context) => InputPage(title: 'BMI Calculator'),
       },
     );
   }
