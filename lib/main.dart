@@ -27,8 +27,19 @@ class FlashChatUpdated extends StatelessWidget {
           bodyText2: TextStyle(color: Colors.black54),
         ),
       ),
-      home: WelcomeScreen(),
+      // home: WelcomeScreen(),
       debugShowCheckedModeBanner: false,
+
+      initialRoute: '/welcome',
+      // Routes
+      routes: {
+        // '/': (context) => InputPage(title: 'BMI Calculator'),
+        '/welcome': (context) => WelcomeScreen(),
+        '/login': (context) => LoginScreen(),
+        '/registration': (context) => RegistrationScreen(),
+        '/chat': (context) => ChatScreen(),
+        // '/input': (context) => InputPage(title: 'BMI Calculator'),
+      },
     );
   }
 }
