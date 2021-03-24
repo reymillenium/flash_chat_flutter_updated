@@ -1,4 +1,14 @@
+// Packages:
 import 'package:flutter/material.dart';
+
+// Screens:
+
+// Components:
+
+// Services:
+
+// Utilities:
+import 'package:flash_chat_flutter_updated/utilities/constants.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override

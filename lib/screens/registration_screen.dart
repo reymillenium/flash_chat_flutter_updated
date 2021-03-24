@@ -1,4 +1,14 @@
+// Packages:
 import 'package:flutter/material.dart';
+
+// Screens:
+
+// Components:
+
+// Services:
+
+// Utilities:
+import 'package:flash_chat_flutter_updated/utilities/constants.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -29,8 +39,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               },
               decoration: InputDecoration(
                 hintText: 'Enter your email',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
@@ -53,8 +62,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               },
               decoration: InputDecoration(
                 hintText: 'Enter your password',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
