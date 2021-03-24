@@ -32,12 +32,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Hero(
+                Hero(
+                  tag: 'flash_logo',
+                  child: Container(
                     child: Image.asset('images/logo.png'),
-                    tag: 'flash_logo',
+                    height: 60.0,
                   ),
-                  height: 60.0,
                 ),
                 Text(
                   'Flash Chat',
