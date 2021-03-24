@@ -30,14 +30,13 @@ class FlashChatUpdated extends StatelessWidget {
       // home: WelcomeScreen(),
       debugShowCheckedModeBanner: false,
 
-      initialRoute: '/welcome',
+      initialRoute: WelcomeScreen.id,
       // Routes
       routes: {
-        // '/': (context) => InputPage(title: 'BMI Calculator'),
-        '/welcome': (context) => WelcomeScreen(),
-        '/login': (context) => LoginScreen(),
-        '/registration': (context) => RegistrationScreen(),
-        '/chat': (context) => ChatScreen(),
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        ChatScreen.id: (context) => ChatScreen(),
         // '/input': (context) => InputPage(title: 'BMI Calculator'),
       },
     );
