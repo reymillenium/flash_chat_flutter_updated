@@ -19,11 +19,38 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
+  AnimationController animationController;
+  Animation curvedAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: this, // The Ticker (this current _WelcomeScreenState object)
+      upperBound: 1, // It can't be greater than 1 with curved animations
+    );
+    curvedAnimation = CurvedAnimation(
+      parent: animationController,
+      curve: Curves.bounceOut,
+    );
+
+    // Animates from 0 to 1 in 60 steps:
+    animationController.forward();
+    // The listener takes a callback. Gets executed in every tick of the ticker?
+    animationController.addListener(() {
+      setState(() {});
+      print(animationController.value);
+      print(curvedAnimation.value);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      // backgroundColor: Colors.red.withOpacity(animationController.value),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -36,7 +63,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   tag: 'flash_logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: 60.0,
+                    // height: 60.0,
+                    // height: animationController.value,
+                    height: curvedAnimation.value * 100,
                   ),
                 ),
                 Text(
