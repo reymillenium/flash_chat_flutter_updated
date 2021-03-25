@@ -37,7 +37,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
 
     // Animates from 0 to 1 in 60 steps:
-    animationController.forward();
+    // animationController.forward();
+
+    // Animates in reverse:
+    animationController.reverse(from: 1.0);
+
     // The listener takes a callback. Gets executed in every tick of the ticker?
     animationController.addListener(() {
       setState(() {});
