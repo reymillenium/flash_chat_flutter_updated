@@ -37,10 +37,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
 
     // Animates from 0 to 1 in 60 steps:
-    // animationController.forward();
+    animationController.forward();
 
     // Animates in reverse:
-    animationController.reverse(from: 1.0);
+    // animationController.reverse(from: 1.0);
+
+    animationController.addStatusListener((status) {
+      print(status);
+      if (status == AnimationStatus.completed) {
+        animationController.reverse(from: 1.0);
+      } else if (status == AnimationStatus.dismissed) {
+        animationController.forward();
+      }
+    });
 
     // The listener takes a callback. Gets executed in every tick of the ticker?
     animationController.addListener(() {
@@ -48,6 +57,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
       print(animationController.value);
       print(curvedAnimation.value);
     });
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
