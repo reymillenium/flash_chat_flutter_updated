@@ -43,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
       curve: Curves.bounceOut,
     );
 
-    // Tween Animations:
+    // Color Tween Animations:
     colorTweenAnimationBackground = ColorTween(
       begin: Colors.blueGrey,
       end: Colors.white,
@@ -66,7 +66,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     // animationController.reverse(from: 1.0);
 
     // animationController.addStatusListener((status) {
-    //   print(status);
     //   if (status == AnimationStatus.completed) {
     //     animationController.reverse(from: 1.0);
     //   } else if (status == AnimationStatus.dismissed) {
@@ -89,8 +88,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
-      // backgroundColor: Colors.red.withOpacity(animationController.value),
       backgroundColor: colorTweenAnimationBackground.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -105,23 +102,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   tag: 'flash_logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    // height: 60.0,
-                    // height: animationController.value,
                     height: curvedAnimation.value * 100,
                   ),
                 ),
 
                 // App Title:
                 TextLiquidFill(
-                  waveDuration: Duration(seconds: 2),
-                  loadDuration: Duration(seconds: 4),
+                  waveDuration: Duration(seconds: 1),
+                  loadDuration: Duration(seconds: 2),
                   text: 'Flash Chat',
                   waveColor: Colors.black,
                   boxBackgroundColor: colorTweenAnimationBackground.value,
                   textStyle: TextStyle(
-                    // backgroundColor: Colors.black,
-                    // color: Colors.black,
-                    // decorationColor: Colors.black,
                     fontSize: 40.0,
                     fontWeight: FontWeight.w900,
                   ),
@@ -130,32 +122,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 ),
               ],
             ),
+
+            // Separation:
             SizedBox(
               height: 48.0,
             ),
-            // SizedBox(
-            //   height: (148.0 - (curvedAnimation.value ?? 1.0) * 100),
-            // ),
+
             // Login Screen button
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                // color: Colors.lightBlueAccent.withOpacity(curvedAnimation.value),
-                // color: colorTweenAnimationLogin.value.withOpacity(animationController.value),
-                color: colorTweenAnimationLogin.value,
-                borderRadius: BorderRadius.circular(12.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            AuthButton(
+              color: colorTweenAnimationLogin.value,
+              routeName: LoginScreen.id,
+              label: 'Log In',
             ),
 
             // Registration Screen button
