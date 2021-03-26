@@ -1,5 +1,6 @@
 // Packages:
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 // Screens:
 import 'package:flash_chat_flutter_updated/screens/login_screen.dart';
@@ -22,7 +23,9 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
   AnimationController animationController;
   Animation curvedAnimation;
-  Animation tweenAnimation;
+  Animation colorTweenAnimationBackground;
+  Animation colorTweenAnimationLogin;
+  Animation colorTweenAnimationRegister;
 
   @override
   void initState() {
@@ -39,10 +42,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
       curve: Curves.bounceOut,
     );
 
-    // Tween Animation:
-    tweenAnimation = ColorTween(
+    // Tween Animations:
+    colorTweenAnimationBackground = ColorTween(
       begin: Colors.blueGrey,
       end: Colors.white,
+    ).animate(animationController);
+
+    colorTweenAnimationLogin = ColorTween(
+      begin: Colors.blueGrey,
+      end: Colors.lightBlueAccent,
+    ).animate(animationController);
+
+    colorTweenAnimationRegister = ColorTween(
+      begin: Colors.blueGrey,
+      end: Colors.blueAccent,
     ).animate(animationController);
 
     // Animates from 0 to 1 in 60 steps:
@@ -80,7 +93,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     return Scaffold(
       // backgroundColor: Colors.white,
       // backgroundColor: Colors.red.withOpacity(animationController.value),
-      backgroundColor: tweenAnimation.value,
+      backgroundColor: colorTweenAnimationBackground.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -89,6 +102,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
           children: <Widget>[
             Row(
               children: <Widget>[
+                // App Logo:
                 Hero(
                   tag: 'flash_logo',
                   child: Container(
@@ -98,12 +112,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                     height: curvedAnimation.value * 100,
                   ),
                 ),
-                Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
+
+                // App Title:
+                TextLiquidFill(
+                  waveDuration: Duration(seconds: 2),
+                  loadDuration: Duration(seconds: 4),
+                  text: 'Flash Chat',
+                  waveColor: Colors.black,
+                  boxBackgroundColor: colorTweenAnimationBackground.value,
+                  textStyle: TextStyle(
+                    // backgroundColor: Colors.black,
+                    // color: Colors.black,
+                    // decorationColor: Colors.black,
+                    fontSize: 40.0,
                     fontWeight: FontWeight.w900,
                   ),
+                  boxHeight: 100.0,
+                  boxWidth: 230.0,
                 ),
               ],
             ),
@@ -118,8 +143,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
+                // color: Colors.lightBlueAccent.withOpacity(curvedAnimation.value),
+                // color: colorTweenAnimationLogin.value.withOpacity(animationController.value),
+                color: colorTweenAnimationLogin.value,
+                borderRadius: BorderRadius.circular(12.0),
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, LoginScreen.id);
@@ -137,8 +164,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
+                // color: Colors.blueAccent.withOpacity(curvedAnimation.value),
+                // color: colorTweenAnimationRegister.value.withOpacity(animationController.value),
+                color: colorTweenAnimationRegister.value,
+                borderRadius: BorderRadius.circular(12.0),
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
