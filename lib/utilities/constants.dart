@@ -27,12 +27,14 @@ const kMessageContainerDecoration = BoxDecoration(
   ),
 );
 
+// User Inputs
+
 // Styling Functions:
 InputDecoration getTextFieldDecoration(String hintText) {
   return InputDecoration(
     hintText: hintText,
     hintStyle: TextStyle(
-      color: Colors.black,
+      color: Colors.grey,
     ),
     contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
     border: OutlineInputBorder(

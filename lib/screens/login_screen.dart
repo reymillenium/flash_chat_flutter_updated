@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             // User Input: password
             UserInput(
-              hintText: 'Enter your password.',
+              hintText: 'Enter your password',
             ),
 
             SizedBox(

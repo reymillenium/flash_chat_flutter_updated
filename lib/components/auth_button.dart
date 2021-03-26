@@ -38,6 +38,10 @@ class AuthButton extends StatelessWidget {
           height: 42.0,
           child: Text(
             label,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+            ),
           ),
         ),
       ),
