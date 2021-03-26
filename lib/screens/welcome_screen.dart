@@ -7,6 +7,7 @@ import 'package:flash_chat_flutter_updated/screens/login_screen.dart';
 import 'package:flash_chat_flutter_updated/screens/registration_screen.dart';
 
 // Components:
+import 'package:flash_chat_flutter_updated/components/auth_button.dart';
 
 // Helpers:
 
@@ -76,9 +77,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     // The listener takes a callback. Gets executed in every tick of the ticker?
     animationController.addListener(() {
       setState(() {});
-      // print(animationController.value);
-      // print(curvedAnimation.value);
-      // print(tweenAnimation.value);
     });
   }
 
@@ -161,25 +159,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             ),
 
             // Registration Screen button
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                // color: Colors.blueAccent.withOpacity(curvedAnimation.value),
-                // color: colorTweenAnimationRegister.value.withOpacity(animationController.value),
-                color: colorTweenAnimationRegister.value,
-                borderRadius: BorderRadius.circular(12.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            AuthButton(
+              color: colorTweenAnimationRegister.value,
+              routeName: RegistrationScreen.id,
+              label: 'Register',
             ),
           ],
         ),
