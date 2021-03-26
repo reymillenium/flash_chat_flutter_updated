@@ -14,12 +14,12 @@ class AuthButton extends StatelessWidget {
   const AuthButton({
     Key key,
     @required this.color,
-    @required this.routeName,
+    this.onPressed,
     @required this.label,
   }) : super(key: key);
 
   final Color color;
-  final String routeName;
+  final Function onPressed;
   final String label;
 
   @override
@@ -32,7 +32,7 @@ class AuthButton extends StatelessWidget {
         elevation: 5.0,
         child: MaterialButton(
           onPressed: () {
-            Navigator.pushNamed(context, routeName);
+            onPressed();
           },
           minWidth: 200.0,
           height: 42.0,

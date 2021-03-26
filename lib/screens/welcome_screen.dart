@@ -133,7 +133,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               tag: 'login_button',
               child: AuthButton(
                 color: colorTweenAnimationLogin.value,
-                routeName: LoginScreen.id,
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginScreen.id);
+                },
                 label: 'Log In',
               ),
             ),
@@ -143,7 +145,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               tag: 'register_button',
               child: AuthButton(
                 color: colorTweenAnimationRegister.value,
-                routeName: RegistrationScreen.id,
+                onPressed: () {
+                  Navigator.pushNamed(context, RegistrationScreen.id);
+                },
                 label: 'Register',
               ),
             ),

@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
               tag: 'login_button',
               child: AuthButton(
                 color: Colors.lightBlueAccent,
-                routeName: null,
+                onPressed: null,
                 label: 'Log in',
               ),
             )

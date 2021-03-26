@@ -64,7 +64,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               tag: 'register_button',
               child: AuthButton(
                 color: Colors.blueAccent,
-                routeName: null,
+                onPressed: null,
                 label: 'Register',
               ),
             ),
