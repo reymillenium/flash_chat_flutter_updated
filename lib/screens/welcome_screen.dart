@@ -22,19 +22,31 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
   AnimationController animationController;
   Animation curvedAnimation;
+  Animation tweenAnimation;
 
   @override
   void initState() {
     super.initState();
     animationController = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 2),
       vsync: this, // The Ticker (this current _WelcomeScreenState object)
       upperBound: 1, // It can't be greater than 1 with curved animations
     );
+
+    // Curved Animation:
     curvedAnimation = CurvedAnimation(
       parent: animationController,
       curve: Curves.bounceOut,
     );
+
+    // Tween Animation:
+    tweenAnimation = ColorTween(
+      // begin: Colors.red,
+      begin: Colors.blue,
+      // begin: Colors.white,
+      // end: Colors.blue,
+      end: Colors.white,
+    ).animate(animationController);
 
     // Animates from 0 to 1 in 60 steps:
     animationController.forward();
@@ -42,20 +54,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     // Animates in reverse:
     // animationController.reverse(from: 1.0);
 
-    animationController.addStatusListener((status) {
-      print(status);
-      if (status == AnimationStatus.completed) {
-        animationController.reverse(from: 1.0);
-      } else if (status == AnimationStatus.dismissed) {
-        animationController.forward();
-      }
-    });
+    // animationController.addStatusListener((status) {
+    //   print(status);
+    //   if (status == AnimationStatus.completed) {
+    //     animationController.reverse(from: 1.0);
+    //   } else if (status == AnimationStatus.dismissed) {
+    //     animationController.forward();
+    //   }
+    // });
 
     // The listener takes a callback. Gets executed in every tick of the ticker?
     animationController.addListener(() {
       setState(() {});
-      print(animationController.value);
+      // print(animationController.value);
       print(curvedAnimation.value);
+      print(tweenAnimation.value);
     });
   }
 
@@ -68,8 +81,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       // backgroundColor: Colors.red.withOpacity(animationController.value),
+      backgroundColor: tweenAnimation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
