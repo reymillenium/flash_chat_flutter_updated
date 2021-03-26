@@ -27,8 +27,6 @@ class AuthButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: Material(
-        // color: Colors.blueAccent.withOpacity(curvedAnimation.value),
-        // color: colorTweenAnimationRegister.value.withOpacity(animationController.value),
         color: color,
         borderRadius: BorderRadius.circular(12.0),
         elevation: 5.0,
