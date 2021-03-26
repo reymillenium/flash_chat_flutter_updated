@@ -129,17 +129,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             ),
 
             // Login Screen button
-            AuthButton(
-              color: colorTweenAnimationLogin.value,
-              routeName: LoginScreen.id,
-              label: 'Log In',
+            Hero(
+              tag: 'login_button',
+              child: AuthButton(
+                color: colorTweenAnimationLogin.value,
+                routeName: LoginScreen.id,
+                label: 'Log In',
+              ),
             ),
 
             // Registration Screen button
-            AuthButton(
-              color: colorTweenAnimationRegister.value,
-              routeName: RegistrationScreen.id,
-              label: 'Register',
+            Hero(
+              tag: 'register_button',
+              child: AuthButton(
+                color: colorTweenAnimationRegister.value,
+                routeName: RegistrationScreen.id,
+                label: 'Register',
+              ),
             ),
           ],
         ),

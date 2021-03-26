@@ -60,10 +60,13 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
             // Login Screen button
-            AuthButton(
-              color: Colors.lightBlueAccent,
-              routeName: null,
-              label: 'Log in',
+            Hero(
+              tag: 'login_button',
+              child: AuthButton(
+                color: Colors.lightBlueAccent,
+                routeName: null,
+                label: 'Log in',
+              ),
             )
           ],
         ),

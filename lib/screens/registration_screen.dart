@@ -60,10 +60,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
 
             // Registration Screen button
-            AuthButton(
-              color: Colors.blueAccent,
-              routeName: null,
-              label: 'Register',
+            Hero(
+              tag: 'register_button',
+              child: AuthButton(
+                color: Colors.blueAccent,
+                routeName: null,
+                label: 'Register',
+              ),
             ),
           ],
         ),
