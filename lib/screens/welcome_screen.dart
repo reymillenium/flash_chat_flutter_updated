@@ -28,7 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   void initState() {
     super.initState();
     animationController = AnimationController(
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
       vsync: this, // The Ticker (this current _WelcomeScreenState object)
       upperBound: 1, // It can't be greater than 1 with curved animations
     );
@@ -41,10 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
     // Tween Animation:
     tweenAnimation = ColorTween(
-      // begin: Colors.red,
-      begin: Colors.blue,
-      // begin: Colors.white,
-      // end: Colors.blue,
+      begin: Colors.blueGrey,
       end: Colors.white,
     ).animate(animationController);
 
@@ -67,8 +64,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     animationController.addListener(() {
       setState(() {});
       // print(animationController.value);
-      print(curvedAnimation.value);
-      print(tweenAnimation.value);
+      // print(curvedAnimation.value);
+      // print(tweenAnimation.value);
     });
   }
 
@@ -113,7 +110,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             SizedBox(
               height: 48.0,
             ),
-
+            // SizedBox(
+            //   height: (148.0 - (curvedAnimation.value ?? 1.0) * 100),
+            // ),
             // Login Screen button
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
