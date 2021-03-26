@@ -14,8 +14,8 @@ class AuthButton extends StatelessWidget {
   const AuthButton({
     Key key,
     @required this.color,
-    this.onPressed,
-    @required this.label,
+    @required this.onPressed,
+    this.label,
   }) : super(key: key);
 
   final Color color;
